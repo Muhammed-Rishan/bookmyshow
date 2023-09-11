@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>Login</h1>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+    {{ form_row(registrationForm.email, {
+        'attr': {
+            'class': 'form-control',
+            'id': 'email-input'
+        }
+    }) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}
